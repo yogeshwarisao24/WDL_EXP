@@ -1,0 +1,115 @@
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Glow Background */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    filter: blur(80px);
+    z-index: -1;
+}
+body::before {
+    background: rgba(14,165,233,0.3);
+    top: -100px; left: -100px;
+}
+body::after {
+    background: rgba(99,102,241,0.3);
+    bottom: -100px; right: -100px;
+}
+
+/* Navbar */
+.custom-nav {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+}
+
+/* Title */
+.title { font-size: 38px; font-weight: bold; }
+.subtitle { color: #94a3b8; }
+
+/* Test Circle */
+.test-area {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 30px auto;
+    background: radial-gradient(circle, #0ea5e9, #2563eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(14,165,233,0.6);
+}
+.test-area.active {
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #0ea5e9; }
+    50% { box-shadow: 0 0 45px #0ea5e9; }
+    100% { box-shadow: 0 0 10px #0ea5e9; }
+}
+
+/* Cards */
+.glass-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.3s;
+}
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #0ea5e9;
+}
+
+/* Loader */
+.loader-ring {
+    width: 60px;
+    height: 60px;
+    border: 6px solid transparent;
+    border-top: 6px solid #0ea5e9;
+    border-right: 6px solid #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg);} }
+
+/* Footer */
+.footer { background: #020617; padding: 40px; }
+
+/* Fade */
+.fade-in { animation: fadeIn 1s ease forwards; }
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(20px);}
+    to { opacity:1; transform:translateY(0);}
+}
+
+/* Particles */
+.particle {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 10s linear infinite;
+}
+@keyframes float {
+    from { transform: translateY(100vh);}
+    to { transform: translateY(-10vh);}
+}
+
+/* Light mode */
+.light-mode {
+    background: #f1f5f9;
+    color: black;
+}
+.light-mode .glass-card {
+    background: white;
+    color: black;
+}
